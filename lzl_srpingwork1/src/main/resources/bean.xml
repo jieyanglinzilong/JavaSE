@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="userdao" class="com.impl.userimpl"></bean>
+
+        <bean id="service" class="com.impl.servicesimpl">
+            <property name="userdao" ref="userdao"/> </bean>
+   <!--静态工厂实例化
+    <bean id="factory1" class="com.Factory.staticfactory" factory-method="creatBean"/>-->
+    <!--实例工厂实例化-->
+    <bean id="factory2" class="com.Factory.factory"></bean>
+    <bean id="factory3" factory-bean="factory2" factory-method="createbaen"></bean>
+
+    <!--构造注入-->
+    <bean id="a" class="com.domin.Student">
+        <constructor-arg index="0" value="xiaoming"></constructor-arg>
+        <constructor-arg index="1">
+            <list>
+                <value>"唱歌"</value>
+                <value>"跳舞"</value>
+                <value>"远足"</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="2">
+            <map>
+                <entry key="chaozhou" value="潮州"></entry>
+                <entry key="guangdong" value="广东"></entry>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="3">
+            <set>
+                 <value>"xiaoming1"</value>
+                <value>"xiaoming2"</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg index="4">
+            <array>
+                <value>"数学"</value>
+                <value>"英语"</value>
+            </array>
+        </constructor-arg>
+    </bean>
+    <bean id="b" class="com.domin.Student">
+        <property name="username" value="xiaohong"></property>
+        <property name="hobbies" >
+            <list>
+                <value>"游泳"</value>
+                <value>"学习"</value>
+                <value>"开车"</value>
+            </list>
+        </property>
+        <property name="address" >
+            <map>
+                <entry key="shenzhen" value="深圳"></entry>
+                <entry key="guangdong" value="广东"></entry>
+            </map>
+        </property>
+        <property name="aliases">
+            <set>
+                <value>"xiaohong1"</value>
+                <value>"xiaohong2"</value>
+            </set>
+        </property>
+        <property name="array">
+            <array>
+                <value>"语文"</value>
+                <value>"数学"</value>
+                <value>"历史"</value>
+            </array>
+        </property></bean>
+</beans>

@@ -1,0 +1,10 @@
+server:
+  port: 80
+spring:
+  profiles:
+    active: jdbc,redis,mail
+pagehelper:
+  helper-dialect:mysql
+  reasonable:true
+  support-method-arguemnt:true
+  params:count=mysql

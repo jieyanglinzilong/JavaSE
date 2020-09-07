@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lzl.com.example.demo.dao.AccountDao">
+   <select id="findAccount" resultType="lzl.com.example.demo.domain.Account">
+       select*from account
+   </select>
+    <update id="updatein" parameterType="lzl.com.example.demo.domain.Account">
+        update account set money=money+#{money} where uid=#{uid}
+    </update>
+    <update id="updateout" parameterType="lzl.com.example.demo.domain.Account">
+        update account set money=money-#{money} where uid=#{uid}
+    </update>
+
+
+
+
+</mapper>

@@ -1,0 +1,63 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .formCenter {
+            background-color: gray;
+            width: 50%;
+            margin: 0 auto;
+            border: solid 1px #ff0000
+        }
+
+        body {
+            text-align: center
+        }
+        img{
+
+
+        }
+    </style>
+</head>
+<body>
+<br>
+<span>个人信息</span>
+<div>
+
+
+    <table class="formCenter">
+        <tr>
+          <td> 姓名  <td th:text="${name}" }/> </td>
+
+        </tr>
+        <tr>
+           <td>用户等级  <td th:text="${rank}"></td> </td>
+        </tr>
+        <tr>
+            <td>用户卡号 <td  th:text="${id}"></td>  </td>
+
+        </tr>
+        <tr>
+            <td>用户余额  <td  th:text="${money}"></td>  </td>
+
+        </tr>
+        <tr>
+            <td> 用户住址<td th:text="${address}"></td>  </td>
+
+        </tr>
+        <tr>
+            <td>注册日期 <td th:text="${day}"></td>  </td>
+
+        </tr>
+        <tr>
+            <td> 用户邮箱<td th:text="${email}"></td>  </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>

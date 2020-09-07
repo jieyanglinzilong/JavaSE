@@ -1,0 +1,5 @@
+com\example\springboot_huancun\Service\CommentService.class
+com\example\springboot_huancun\Controller\CommentControoler.class
+com\example\springboot_huancun\Dao\CommentRepository.class
+com\example\springboot_huancun\domain\comment.class
+com\example\springboot_huancun\SpringbootHuancunApplication.class

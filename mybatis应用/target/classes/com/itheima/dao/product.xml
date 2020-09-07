@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wxg.com.itheima.dao.Orderlist">
+<select id="find" resultMap="Orderlist" parameterType="int">
+   select o.id  from tb_product p,tb_orders o,tb_ordersitem c where  c.prouct_id=p.id and p.id=#{id} and c.order_id=o.id
+</select>
+<resultMap id="Orderlist" type="com.itheima.domin.Order" >
+    <id property="id" column="id"></id>
+    <result property="number" column="number"></result>
+    <result property="user_id" column="user_id"></result>
+    <collection property="productList" ofType="com.itheima.domin.product">
+     <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="price" column="price"></result>
+    </collection>
+    <collection property="ordersitem" ofType="com.itheima.domin.Ordersitem">
+        <id property="id" column="id"></id>
+         <id property="order_id" column="order_id"></id>
+        <id property="product_id" column="product_id"></id>
+    </collection>
+
+</resultMap>
+
+
+</mapper>

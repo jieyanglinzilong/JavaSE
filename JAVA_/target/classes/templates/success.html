@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>导航菜单</title>
+    <link th:href="@{/css/loginTop.css}" rel="stylesheet">
+    <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+<ul>
+    <li><form action="/Forword/Tranfer" method="post"><button value="转账" type="submit">转账</button></form></li>
+
+    <li><form action="/Forword/User" method="post"><button value="个人中心" type="submit">个人中心</button></form></li>
+</ul>
+
+
+</body>
+</html>
+<!--
+
+<li><button type="button" value="转账" onclick="tranfer()">转账</button></li>
+    <li><a href="Tranfer.html">转账</a></li>
+    <li><a href="logs.html">账户记录</a></li>
+    <li><a href="product.html">产品中心</a></li>
+    <li><a href="User.html"><span th:text="${list}"></span> </a> </li>
+
+
+-->

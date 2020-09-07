@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<div class="main">
+    <div class="title">
+        <span>密码登录</span>
+    </div>
+
+    <div class="title-msg">
+        <span>请输入登录账户和密码</span>
+    </div>
+
+    <form class="login-form" action="/Forword/check" method="post" novalidate >
+        <!--输入框-->
+        <div class="input-content">
+            <!--autoFocus-->
+            <div>
+                <input type="text" autocomplete="off"
+                       placeholder="用户名" name="id" required/>
+            </div>
+            <div style="margin-top: 16px">
+                <input type="text"
+                       autocomplete="off" placeholder="登录密码" name="word" required maxlength="32"/>
+            </div>
+        </div>
+
+        <!--登入按钮-->
+        <div style="text-align: center">
+            <button type="submit" class="enter-btn" >登录</button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+<form action="/Re/re" METHOD="post"><button type="submit" value="注册">注册</button> </form>
+<!--
+ <P>                                     </P> <a href="login.html">注册</a>
+                                           <br>
+
+<form  action="Forword/check" method="post">
+    账户    <input type="text" name="id" id="id"><br>
+    邮箱    <input type="text" name="email" id="email"><br>
+    密码     <input type="text" name="word" id="word"><br>
+    <input type="submit" value="提交数据" >
+</form>
+
+
+
+
+-->

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.Ido.Iuser">
+    <resultMap  type="com.it.domin.Area" id="areamap" >
+        <id property="id" column="id"/>
+        <result property="area" column="area"/>
+        <result property="pid" column="pid"/>
+        <collection property="user" javaType="user">
+            <id column="id" property="id"></id>
+            <result column="username" property="username"/>
+            <result column="birthday" property="birthday"/>
+            <result column="sex" property="sex"/>
+            <result column="address" property="address"/>
+        </collection>
+    </resultMap>
+    <!--配置查询所有-->
+     
+    <select id="findarea" resultMap="areamap">
+
+   select u.*,a.id,a.pid from area a,user u
+    WHERE u.address=a.area
+    </select>
+    <select id="findAll" resultType="com.it.domin.User">
+        select *from user
+    </select>
+    <select id="findbycondtion" parameterType="com.it.domin.User" resultType="com.it.domin.User">
+        select *from user
+        <where>
+            <if test="username!=null and address!=null">
+                and username like #{username}
+            </if>
+
+        </where>
+
+    </select>
+    <select id="findwhere" parameterType="com.it.domin.Quervo" resultType="com.it.domin.User">
+        SELECT *FROM user
+        <where>
+        <if test="name!=null and name.size()>0">
+            <foreach collection="name" open="and username in(" close=")" item="username" separator=",">
+                #{username}
+            </foreach>
+        </if>
+        </where>
+
+
+
+    </select>
+   <select id="findname" parameterType="String" resultType="com.it.domin.User">
+       select *from user
+       where username like #{username}
+   </select>
+
+
+
+
+
+
+
+
+</mapper>

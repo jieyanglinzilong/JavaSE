@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.StudentsDao">
+    <select id="find" resultMap="" parameterType="INT">
+        select u.* from dh_student u,dh_room where lzl_room.id=1 and dh_room.room_no=u.room_no
+    </select>
+    <resultMap id="" type="com.itheima.PO.StudentImpl">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="major" column="major"></result>
+        <result property="department" column="department"></result>
+        <result property="phone" column="phone"></result>
+        <result property="room_no" column="room_no"></result>
+        <collection property="roomList" ofType="com.itheima.domin.room">
+            <id property="id" column="id"></id>
+            <result property="room_no" column="room_no"></result>
+            <result property="building" column="building"></result>
+        </collection>
+    </resultMap>
+
+
+</mapper>

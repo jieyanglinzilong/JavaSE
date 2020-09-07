@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lzl.com.example.demo.dao.Infodao">
+    <!--配置查询所有-->
+    <select id="find" parameterType="int" resultMap="Center">
+      select u.*,p.*,i.*,a.* from point p,`user` u,info i ,account a where u.id=p.uid and i.id=u.id and u.id=#{id} and a.uid=u.id
+
+    </select>
+
+    <resultMap id="Center" type="lzl.com.example.demo.Pojo.Usercenter">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="registration" column="registration"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+        <collection property="point" ofType="lzl.com.example.demo.domain.Point">
+            <id property="pid" column="pid"></id>
+            <result property="uid" column="uid"></result>
+            <result property="point" column="point"></result>
+            <result property="rank" column="rank"></result>
+        </collection>
+        <collection property="info" ofType="lzl.com.example.demo.domain.info">
+            <id property="id" column="id"></id>
+            <result property="name" column="name"></result>
+            <result property="email" column="email"></result>
+            <result property="word"  column="word"></result>
+        </collection>
+        <collection property="accounts" ofType="lzl.com.example.demo.domain.Account">
+            <id property="aid" column="aid"></id>
+            <result property="uid" column="uid"></result>
+            <result property="money" column="money"></result>
+        </collection>
+    </resultMap>
+
+</mapper>
