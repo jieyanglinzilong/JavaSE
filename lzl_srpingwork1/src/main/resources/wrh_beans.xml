@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+        
+        <!-- 使用构造注入方式装配Student实例 -->
+    <bean id="student1" class="wrh_homework.wrh_Student">
+    	<constructor-arg index="0" value="xiaoming"/>
+    	<!-- 注入list集合 -->
+    	<constructor-arg index="1">
+    		<list>
+    			<value>唱歌</value>
+    			<value>跳舞</value>
+    			<value>远足</value>
+    		</list>
+    	</constructor-arg>
+    	<!-- 注入map集合 -->
+        <constructor-arg index="2">
+        	<map>
+        		<entry key="chouzhou" value="潮州"/>
+            	<entry key="guangdong" value="广东"/>
+        	</map>   
+        </constructor-arg>
+        <!-- 注入set集合 -->
+        <constructor-arg index="3">
+         	<set>
+         		<value>xiaoming1</value>
+         		<value>xiaoming2</value>
+         	</set>
+        </constructor-arg>
+        <!-- 注入array数组 -->
+ 
+        <constructor-arg index="4">
+         	<array>
+         		<value >数学</value>
+         		<value >英语</value>
+         	</array>
+        </constructor-arg>
+    </bean>
+ <!-- 使用设置注入方式装配Student实例 -->
+    <bean id="student2" class="wrh_homework.wrh_Student">
+       <property name="username" value="xiaohong"></property>
+       <!-- 注入list集合 -->
+       <property name="hobbies">
+       		<list>
+       			<value>游泳</value>
+       			<value>学习</value>
+       			<value>开车</value>
+       		</list>
+       </property>
+       <!-- 注入map集合 -->
+       <property name="address">
+      	 	<map>
+       			<entry key="chouzhou" value="潮州"/>
+            	<entry key="guangdong" value="广东"/>
+       	 	</map>
+       </property>
+       <!-- 注入set集合 -->
+       <property name="aliases">
+       		<set>
+       			<value>xiaohong1,xiaohong2</value>
+       		</set>
+       </property>
+       <!-- 注入array数 组 -->
+       <property name="array">
+       		<list>
+       			<value>语文</value>
+       			<value>英语</value>
+       			<value>历史</value>
+       		</list>
+       </property>
+    </bean>
+
+
+</beans>
